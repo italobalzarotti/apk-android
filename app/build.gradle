@@ -1,0 +1,5 @@
+plugins { id 'com.android.application' }
+
+android { namespace 'com.italo.a32mask'; compileSdk 35
+    defaultConfig { applicationId 'com.italo.a32mask'; minSdk 29; targetSdk 33; versionCode 1; versionName '1.0' }
+}
