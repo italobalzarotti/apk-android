@@ -1,25 +1,24 @@
-# A32 Screen Mask
+# A32 Screen Mask V2
 
-Proyecto Android mínimo para Galaxy A32 / Android 13.
+Primera prueba de V2 para Galaxy A32 / Android 13.
 
-## Compilar con GitHub Actions
+Esta versión usa MediaProjection para capturar la pantalla y una ventana de accesibilidad para mostrar una copia reducida en la zona sana. También intenta traducir los toques mediante AccessibilityService.
 
-1. Sube todo el contenido de este proyecto a un repositorio de GitHub.
-2. Ve a **Actions**.
-3. Selecciona **Build APK**.
-4. Pulsa **Run workflow**.
-5. Cuando termine, abre la ejecución.
-6. En **Artifacts**, descarga `A32ScreenMask-debug`.
-7. Descomprime el ZIP y obtendrás `app-debug.apk`.
+## Prueba recomendada
 
-## Instalar por ADB
-
-Desde el Mac:
+Mantén:
 
 ```bash
-adb install app-debug.apk
+adb shell wm size 810x2400
+adb shell wm density 420
 ```
 
-Después activa el servicio en:
+Instala la APK y activa el servicio de accesibilidad. Luego abre la app y pulsa **INICIAR V2**. Acepta el diálogo de captura de pantalla.
 
-Ajustes → Accesibilidad → Servicios instalados → A32 Screen Mask.
+### Importante
+
+Esta es una V2 experimental. MediaProjection puede no capturar determinadas ventanas protegidas (`FLAG_SECURE`) y la captura puede variar según One UI. Si aparece una imagen negra, parpadeo o efecto espejo, detén V2 y vuelve a la V1.
+
+## GitHub Actions
+
+Ve a Actions → Build APK → Run workflow. El artefacto será `A32ScreenMask-V2-debug`.
